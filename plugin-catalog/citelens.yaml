@@ -1,0 +1,41 @@
+name: citelens
+title: CiteLens
+repo: https://github.com/deliberatelabs-stack/citelens-mcp
+sha: c3e466adadde6dbedab20b36fc852b4267728127
+subdir: hermes
+version: "0.1.0"
+description: >-
+  Portable Agent Plugins v1 package (plugin.json + mcp.json) that gives Hermes
+  27 MCP tools for a site owner's own webmaster, indexing, and AI-citation data.
+  Works with Bing Webmaster Tools (traffic, queries, crawl, sitemaps, URL
+  submission), IndexNow URL submission, imported AI citation reports from
+  Bing Webmaster Tools, and local historical snapshots. Launches via
+  `npx -y citelens-mcp` (stdio). Disclosure — Network: HTTPS to the Bing
+  Webmaster Tools JSON API (ssl.bing.com) and the IndexNow API
+  (api.indexnow.org). No telemetry. Auth through Hermes env interpolation
+  in mcp.json: BING_WEBMASTER_API_KEY, or OAuth via CITELENS_ACCESS_TOKEN,
+  CITELENS_REFRESH_TOKEN, CITELENS_CLIENT_ID and CITELENS_CLIENT_SECRET.
+  Optional: INDEXNOW_KEY, CITELENS_DATA_DIR. The server may also read and,
+  on refresh, write OAuth tokens at ~/.citelens/token.json (or
+  CITELENS_TOKEN_FILE). Local storage: SQLite under ~/.citelens/. First
+  start downloads citelens-mcp@0.1.0 and dependencies (including
+  better-sqlite3 native prebuilds) from the official npm registry. Node.js
+  20+ required. Tools that change state: bing_submit_sitemap, bing_submit_url,
+  bing_submit_url_batch, indexnow_submit_url, indexnow_submit_batch,
+  ai_import_citation_report, snapshot_stats. The tool set is provided by
+  the npm package at runtime and is not registered as native Hermes tools
+  in this repository.
+maintainer: deliberatelabs-stack
+tier: community
+category: tools
+docs_url: https://github.com/deliberatelabs-stack/citelens-mcp#readme
+requires_hermes: ">=0.21.5"
+platforms: []
+known_issues:
+  - "Needs Node.js 20+ so npx can launch citelens-mcp."
+  - "Access that works with Bing Webmaster Tools needs an API key or OAuth env vars; the server may also read ~/.citelens/token.json."
+capabilities:
+  provides_tools: []
+  provides_hooks: []
+  provides_middleware: []
+  requires_env: []
